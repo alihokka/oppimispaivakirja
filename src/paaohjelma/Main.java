@@ -1,25 +1,25 @@
 package paaohjelma;
 
 
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        Topic aihe = new Topic("Java");
+        Scanner lukija = new Scanner(System.in);
+        Writer kirjoittaja = new Writer();
+        Reader reader = new Reader();
 
-        System.out.println(aihe.getId());
-        System.out.println(aihe.getTitle());
-        System.out.println(aihe.getCreationDate());
-        System.out.println(aihe.getDescription());
-        System.out.println(aihe.getAdditionalSource());
-        System.out.println(aihe.getCompletionDate());
-        System.out.println(aihe.isComplete());
+            Interface userinterface = new Interface(reader, kirjoittaja, lukija);
 
-        Topic toinenaihe = new Topic("Eri juttu");
+        try {
+            userinterface.kaynnista();
+        }catch (IOException e){
+            System.out.println("Jotain tapahtui");
+            e.printStackTrace();
+        }
 
-        System.out.println(toinenaihe.getId());
-        System.out.println(toinenaihe.getTitle());
-        System.out.println(toinenaihe.getCreationDate());
-        System.out.println(toinenaihe.getCompletionDate());
-
+        }
     }
-}
+
