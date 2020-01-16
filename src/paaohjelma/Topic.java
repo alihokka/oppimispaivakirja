@@ -1,24 +1,26 @@
 package paaohjelma;
 
 import java.time.LocalDate;
+import java.util.Random;
 
 public class Topic {
-    static int id = 0;
+    private int id;
     private String title;
     private String description;
     private String additionalSource;
     private boolean complete;
     private LocalDate creationDate;
     private LocalDate completionDate;
+    Random random = new Random();
 
-    public Topic(String title){
+    public Topic(String title) {
         this.title = title;
         this.creationDate = LocalDate.now();
         this.complete = false;
-        this.id = id+1;
+        this.id = random.nextInt(1000000);
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 
@@ -26,26 +28,26 @@ public class Topic {
         return title;
     }
 
-    public String getDescription(){
+    public String getDescription() {
         return this.description;
     }
 
-    public String getAdditionalSource(){
+    public String getAdditionalSource() {
         return this.additionalSource;
     }
 
-    public boolean isComplete(){
+    public boolean isComplete() {
         return this.complete;
     }
 
-    public String getCreationDate(){
+    public String getCreationDate() {
         return creationDate.toString();
     }
 
-    public String getCompletionDate(){
-        if(completionDate == null){
+    public String getCompletionDate() {
+        if (completionDate == null) {
             return "Ei valmis.";
-        }else{
+        } else {
             return this.completionDate.toString();
         }
     }
