@@ -37,7 +37,8 @@ public class Interface {
                 System.out.print("Mihin tiedostoon kirjoitetaan?: ");
                 String kirjoitusvalinta = scanner.nextLine();
                 System.out.println("Lisää tekstiä:");
-                writer.writeToFile(kirjoitusvalinta);
+                String kirjoitettava = scanner.nextLine();
+                writer.kirjoitaTiedostoon(kirjoitusvalinta, kirjoitettava);
                 continue;
             }
 
