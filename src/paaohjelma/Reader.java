@@ -11,9 +11,9 @@ public class Reader {
 
     }
 
-    public void readFile(String filetoread){
+    public void readFile(){
         String tulos = null;
-        try (FileReader fr = new FileReader(filetoread);
+        try (FileReader fr = new FileReader("topics.txt");
              BufferedReader in = new BufferedReader(fr)) {
             StringBuilder teksti = new StringBuilder();
             String rivi;

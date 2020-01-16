@@ -8,11 +8,13 @@ public class Interface {
     private Writer writer;
     private Scanner scanner;
     private Topic topic;
+    private Topiclist topiclist;
 
-        public Interface(Reader reader, Writer writer, Scanner scanner){
+        public Interface(Reader reader, Writer writer, Scanner scanner, Topiclist topiclist){
             this.reader = reader;
             this.writer = writer;
             this.scanner = scanner;
+            this.topiclist = topiclist;
         }
 
     public void kaynnista() throws IOException {
@@ -22,34 +24,31 @@ public class Interface {
         while(true) {
             System.out.println("---------------------------------------");
             System.out.println("Komennot:");
-            System.out.println("listaa = listaa tämän kansion tiedostot");
             System.out.println("kirjoita = kirjoita tiedostoon");
-            System.out.println("avaa = näytä tiedoston sisältö");
+            System.out.println("lue = näytä tiedoston sisältö");
+            System.out.println("listaa = listaa aiheet");
+            System.out.println("poistu = lopeta ohjelma");
             System.out.println("---------------------------------------");
 
             String valinta = scanner.nextLine();
 
-            if (valinta.equals("listaa")) {
-                System.out.println("moi");
-            }
-
             if (valinta.equals("kirjoita")) {
-                System.out.print("Mihin tiedostoon kirjoitetaan?: ");
-                String kirjoitusvalinta = scanner.nextLine();
                 System.out.println("Lisää tekstiä:");
                 String kirjoitettava = scanner.nextLine();
-                writer.kirjoitaTiedostoon(kirjoitusvalinta, kirjoitettava);
+                writer.kirjoitaTiedostoon(kirjoitettava);
+                topiclist.addTopicsToList(kirjoitettava);
                 continue;
             }
 
-            if(valinta.equals("avaa")){
-                System.out.println("Mikä tiedosto avataan?");
-                String avattava = scanner.nextLine();
-
-                reader.readFile(avattava);
+            if(valinta.equals("listaa")){
+                    topiclist.getAllTopics();
             }
 
-            if(valinta.isEmpty()){
+            if(valinta.equals("lue")){
+                reader.readFile();
+            }
+
+            if(valinta.equals("lopeta")){
                 break;
             }
 

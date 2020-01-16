@@ -3,6 +3,7 @@ package paaohjelma;
 import java.io.*;
 
 public class Writer {
+    Topiclist topiclist = new Topiclist();
     public Writer(){
 
     }
@@ -23,9 +24,10 @@ public class Writer {
     BufferedWriter writer = null;
 
 
-    public void kirjoitaTiedostoon(String filename, String stringtowrite){
+    public void kirjoitaTiedostoon(String stringtowrite){
         try {
             writer = new BufferedWriter(new FileWriter("topics.txt", true));
+            topiclist.addTopicsToList(stringtowrite);
             writer.write(stringtowrite + "\n");
         } catch (IOException ex) {
             ex.printStackTrace();

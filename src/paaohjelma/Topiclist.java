@@ -25,9 +25,13 @@ public class Topiclist {
     }
 
     public void getAllTopics(){
-        for(Topic aihe : arrayList){
-            System.out.println(aihe.getTitle() + " " + aihe.getAdditionalSource() + " " + aihe.getCompletionDate() + " " +
-                    aihe.getCreationDate() + " " +aihe.getDescription() + " " +aihe.getId()+ " " + aihe.isComplete());
+        if(arrayList.isEmpty()){
+            System.out.println("Lista tyhjä!");
+        }else {
+            for (Topic aihe : arrayList) {
+                System.out.println(aihe.getTitle() + " " + aihe.getAdditionalSource() + " " + aihe.getCompletionDate() + " " +
+                        aihe.getCreationDate() + " " + aihe.getDescription() + " " + aihe.getId() + " " + aihe.isComplete());
+            }
         }
 
     }

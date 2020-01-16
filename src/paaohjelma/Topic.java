@@ -33,7 +33,11 @@ public class Topic {
     }
 
     public String getAdditionalSource() {
-        return this.additionalSource;
+        if(this.additionalSource == null){
+            return "ei asetettu";
+        }else{
+            return this.additionalSource;
+        }
     }
 
     public boolean isComplete() {
@@ -46,7 +50,7 @@ public class Topic {
 
     public String getCompletionDate() {
         if (completionDate == null) {
-            return "Ei valmis.";
+            return "ei valmis";
         } else {
             return this.completionDate.toString();
         }
