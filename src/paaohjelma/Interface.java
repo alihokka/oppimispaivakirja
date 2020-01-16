@@ -7,6 +7,7 @@ public class Interface {
     private Reader reader;
     private Writer writer;
     private Scanner scanner;
+    private Topic topic;
 
         public Interface(Reader reader, Writer writer, Scanner scanner){
             this.reader = reader;
