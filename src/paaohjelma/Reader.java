@@ -1,35 +1,34 @@
 package paaohjelma;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Reader {
 
-    public Reader(){
+    public Topiclist topiclist;
 
+    public Reader(){
+    this.topiclist = new Topiclist();
     }
 
     public void readFile(){
-        String tulos = null;
-        try (FileReader fr = new FileReader("topics.txt");
-             BufferedReader in = new BufferedReader(fr)) {
-            StringBuilder teksti = new StringBuilder();
-            String rivi;
-            int i = 0;
-            int pituus = 0;
-            while ((rivi = in.readLine()) != null) {
-                teksti.append(rivi).append("\n");
-                pituus = pituus + rivi.length();
-                i++;
+        try (Scanner tiedostonLukija = new Scanner(new File("topics.txt"))) {
+            while (tiedostonLukija.hasNextLine()) {
+                topiclist.addTopicsToList(tiedostonLukija.nextLine());
             }
-            tulos = teksti.toString();
-            System.out.println(tulos);
         } catch (FileNotFoundException ex) {
-            System.out.println("Error: File not found!");
-        } catch (IOException ex) {
-            System.out.println("Error: Unknown error!");
+            System.out.println("tiedostoa ei löydy");
+        }
+    }
+
+    public void printFile(){
+        try (Scanner tiedostonLukija = new Scanner(new File("topics.txt"))) {
+            while (tiedostonLukija.hasNextLine()) {
+                String lisattava = tiedostonLukija.nextLine();
+                System.out.println(lisattava);
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("tiedostoa ei löydy");
         }
     }
 }

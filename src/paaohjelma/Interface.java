@@ -8,13 +8,12 @@ public class Interface {
     private Writer writer;
     private Scanner scanner;
     private Topic topic;
-    private Topiclist topiclist;
+    public Topiclist topiclist;
 
-        public Interface(Reader reader, Writer writer, Scanner scanner, Topiclist topiclist){
+        public Interface(Reader reader, Writer writer, Scanner scanner){
             this.reader = reader;
             this.writer = writer;
             this.scanner = scanner;
-            this.topiclist = topiclist;
         }
 
     public void kaynnista() throws IOException {
@@ -36,16 +35,18 @@ public class Interface {
                 System.out.println("Lisää tekstiä:");
                 String kirjoitettava = scanner.nextLine();
                 writer.kirjoitaTiedostoon(kirjoitettava);
-                topiclist.addTopicsToList(kirjoitettava);
                 continue;
             }
 
             if(valinta.equals("listaa")){
-                    topiclist.getAllTopics();
+                Topiclist.getAllTopics();
+                System.out.println("---------------------------------------");
+                System.out.println(topiclist.getKoko() + " aihetta listalla");
+
             }
 
             if(valinta.equals("lue")){
-                reader.readFile();
+                reader.printFile();
             }
 
             if(valinta.equals("lopeta")){

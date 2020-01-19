@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Topiclist {
     private Topic topic;
-    private ArrayList<Topic> arrayList;
+    private static ArrayList<Topic> arrayList;
 
     public Topiclist(){
-        this.arrayList = new ArrayList();
+        arrayList = new ArrayList<>();
+       // this.arrayList = new ArrayList();
     }
 
-    public void addTopicsToList(String aihe){
+    public static void addTopicsToList(String aihe){
         arrayList.add(new Topic(aihe));
     }
 
@@ -24,15 +25,20 @@ public class Topiclist {
         return haettavatopic;
     }
 
-    public void getAllTopics(){
-        if(arrayList.isEmpty()){
-            System.out.println("Lista tyhjä!");
-        }else {
-            for (Topic aihe : arrayList) {
-                System.out.println(aihe.getTitle() + " " + aihe.getAdditionalSource() + " " + aihe.getCompletionDate() + " " +
-                        aihe.getCreationDate() + " " + aihe.getDescription() + " " + aihe.getId() + " " + aihe.isComplete());
-            }
+    public static int getKoko(){
+        return arrayList.size();
+    }
+
+    public static void getAllTopics(){
+        //String palautus = arrayList.get(0).getTitle();
+
+        int i = 0;
+        while(i < arrayList.size()){
+            System.out.println("id: " + arrayList.get(i).getId() + " aihe: " + arrayList.get(i).getTitle() + " luotu: " + arrayList.get(i).getCreationDate());
+            i++;
         }
+
+
 
     }
 }

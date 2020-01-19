@@ -11,9 +11,12 @@ public class Main {
         Scanner lukija = new Scanner(System.in);
         Writer kirjoittaja = new Writer();
         Reader reader = new Reader();
-        Topiclist topiclist = new Topiclist();
 
-            Interface userinterface = new Interface(reader, kirjoittaja, lukija, topiclist);
+        reader.readFile();
+
+            Interface userinterface = new Interface(reader, kirjoittaja, lukija);
+
+
 
         try {
             userinterface.kaynnista();
