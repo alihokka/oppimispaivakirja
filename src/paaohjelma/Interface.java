@@ -7,15 +7,15 @@ public class Interface {
     private Reader reader;
     private Writer writer;
     private Scanner scanner;
-    private Remover remover;
+    //private Remover remover;
     private Topic topic;
     public Topiclist topiclist;
 
-        public Interface(Reader reader, Writer writer, Scanner scanner, Remover remover){
+        public Interface(Reader reader, Writer writer, Scanner scanner){
             this.reader = reader;
             this.writer = writer;
             this.scanner = scanner;
-            this.remover = remover;
+            //this.remover = remover;
         }
 
     public void kaynnista() throws IOException {
