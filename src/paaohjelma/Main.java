@@ -11,14 +11,13 @@ public class Main {
         Scanner lukija = new Scanner(System.in);
         Writer kirjoittaja = new Writer();
         Reader reader = new Reader();
-        //Remover remover = new Remover();
+        Remover remover = new Remover();
         Topiclist topiclist = new Topiclist();
 
-        //System.out.println(topiclist.getTopic("Java"));
 
-        reader.readFile();
+       // reader.readFile();
 
-            Interface userinterface = new Interface(reader, kirjoittaja, lukija);
+            Interface userinterface = new Interface(reader, kirjoittaja, lukija, remover);
 
 
 

@@ -7,15 +7,15 @@ public class Interface {
     private Reader reader;
     private Writer writer;
     private Scanner scanner;
-    //private Remover remover;
+    private Remover remover;
     private Topic topic;
     public Topiclist topiclist;
 
-        public Interface(Reader reader, Writer writer, Scanner scanner){
+        public Interface(Reader reader, Writer writer, Scanner scanner, Remover remover){
             this.reader = reader;
             this.writer = writer;
             this.scanner = scanner;
-            //this.remover = remover;
+            this.remover = remover;
         }
 
     public void kaynnista() throws IOException {
@@ -62,9 +62,9 @@ public class Interface {
                 reader.printFile();
             }
 
-            //if(valinta.equals(("poista"))){
-             //   remover.removeTopic();
-           // }
+            if(valinta.equals(("poista"))){
+                remover.removeTopic();
+            }
 
             if(valinta.equals("lopeta")){
                 break;
