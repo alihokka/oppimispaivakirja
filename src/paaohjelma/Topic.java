@@ -13,11 +13,14 @@ public class Topic {
     private LocalDate completionDate;
     Random random = new Random();
 
-    public Topic(String title) {
+    public Topic(String title, String description, String additionalSource) {
         this.title = title;
         this.creationDate = LocalDate.now();
         this.complete = false;
         this.id = random.nextInt(1000000);
+        this.description = description;
+        this.additionalSource = additionalSource;
+        this.completionDate = null;
     }
 
     public int getId() {
@@ -47,6 +50,7 @@ public class Topic {
     public String getCreationDate() {
         return creationDate.toString();
     }
+
 
     public String getCompletionDate() {
         if (completionDate == null) {

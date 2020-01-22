@@ -12,11 +12,11 @@ public class Writer {
     BufferedWriter writer = null;
 
 
-    public void kirjoitaTiedostoon(String stringtowrite) {
+    public void kirjoitaTiedostoon(String topic, String description, String source) {
         try {
             writer = new BufferedWriter(new FileWriter("topics.txt", true));
-            Topiclist.addTopicsToList(stringtowrite);
-            writer.write(stringtowrite + "\n");
+            Topiclist.addTopicsToList(topic, description, source);
+            writer.write(topiclist.getTopic(topic) + "\n");
 
         } catch (IOException ex) {
             ex.printStackTrace();
