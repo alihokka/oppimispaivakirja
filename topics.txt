@@ -1,3 +1,2 @@
-239455,Maven,lisää javaa,Academy,false,2020-01-22,ei valmis
-537542,Java,Koodaus,Wikipedia,false,2020-01-22,ei valmis
-425665,uusi aihe,kuvaus,lähde,false,2020-01-22,ei valmis
+784284,Java,Ohjelmointikieli,Academy,false,2020-01-22,ei valmis
+784284,Java,Ohjelmointikieli,Academy,true,2020-01-22,2020-01-22

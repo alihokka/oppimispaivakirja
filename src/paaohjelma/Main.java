@@ -12,22 +12,19 @@ public class Main {
         Writer kirjoittaja = new Writer();
         Reader reader = new Reader();
         Remover remover = new Remover();
-        Topiclist topiclist = new Topiclist();
 
+        reader.readFile();
 
-       // reader.readFile();
-
-            Interface userinterface = new Interface(reader, kirjoittaja, lukija, remover);
-
+        Interface userinterface = new Interface(kirjoittaja, lukija, remover);
 
 
         try {
             userinterface.kaynnista();
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Jotain tapahtui");
             e.printStackTrace();
         }
 
-        }
     }
+}
 

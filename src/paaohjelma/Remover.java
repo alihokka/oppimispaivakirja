@@ -9,7 +9,7 @@ public class Remover {
 
     }
 
-    public void removeTopic() {
+    public void removeTopic(String toremove) {
 
         try {
 
@@ -19,20 +19,19 @@ public class Remover {
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-            String lineToRemove = "bbb";
+            String lineToRemove = topiclist.getIdToRemove(toremove);
             String currentLine;
 
             while ((currentLine = reader.readLine()) != null) {
                 // trim newline when comparing with lineToRemove
-                String trimmedLine = currentLine.trim();
-                if (trimmedLine.equals(lineToRemove)) continue;
+               // String trimmedLine = currentLine.trim();
+                if (currentLine.contains(lineToRemove)) continue;
                 writer.write(currentLine + System.getProperty("line.separator"));
             }
             writer.close();
             reader.close();
-            //boolean successful =
-                    inputFile.delete();
-                    tempFile.renameTo(inputFile);
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
         } catch (Exception e) {
             System.out.println("Didn't work!");
         }

@@ -20,7 +20,7 @@ public class Reader {
             }
             int i = 0;
             while(i < rivit.size()){
-                topiclist.addTopicsToList(rivit.get(i)[1],rivit.get(i)[2], rivit.get(i)[3]);
+                topiclist.addTopicsToListFromTxtFile(Integer.valueOf(rivit.get(i)[0]),rivit.get(i)[1],rivit.get(i)[2], rivit.get(i)[3]);
                 i++;
             }
         } catch (FileNotFoundException ex) {

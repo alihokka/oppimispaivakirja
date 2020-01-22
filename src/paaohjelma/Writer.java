@@ -31,4 +31,22 @@ public class Writer {
         }
     }
 
+    public void updateTextFile() {
+        try {
+            writer = new BufferedWriter(new FileWriter("topics.txt", true));
+            writer.write(topiclist.updateTxtFile() + "\n");
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    System.err.println(e);
+                }
+            }
+        }
+    }
+
 }

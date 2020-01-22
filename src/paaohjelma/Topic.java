@@ -23,6 +23,16 @@ public class Topic {
         this.completionDate = null;
     }
 
+    public Topic(int id, String title, String description, String additionalSource){
+        this.title = title;
+        this.creationDate = LocalDate.now();
+        this.complete = false;
+        this.id = id;
+        this.description = description;
+        this.additionalSource = additionalSource;
+        this.completionDate = null;
+    }
+
     public int getId() {
         return id;
     }
@@ -60,4 +70,23 @@ public class Topic {
         }
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAdditionalSource(String additionalSource) {
+        this.additionalSource = additionalSource;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setComplete(boolean complete) {
+        this.complete = complete;
+    }
+
+    public void setCompletionDate(LocalDate completionDate) {
+        this.completionDate = completionDate;
+    }
 }
